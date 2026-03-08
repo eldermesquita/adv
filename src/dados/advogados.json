@@ -1,0 +1,45 @@
+
+[
+  {
+    "id": 1,
+    "nome": "DR. VICTOR CARVALHO",
+    "area_atuacao": "CRIMINAL",
+    "foto": "assets/img/equipe/1.jpeg",
+    "descricao": ""
+  },
+  {
+    "id": 2,
+    "nome": "DRA. GABRIELA REGINA",
+    "area_atuacao": "PREVIDENCIÁRIO / FAMÍLIA",
+    "foto": "assets/img/equipe/3.jpeg",
+    "descricao": ""
+  },
+  {
+    "id": 3,
+    "nome": "DR. AQUILA SILVESTRE",
+    "area_atuacao": "TRABALHISTA",
+    "foto": "assets/img/equipe/2.jpeg",
+    "descricao": ""
+  },
+  {
+    "id": 4,
+    "nome": "DRA. KALLYNE OLIVEIRA",
+    "area_atuacao": "CRIMINAL",
+    "foto": "assets/img/equipe/4.jpeg",
+    "descricao": ""
+  },
+  {
+    "id": 5,
+    "nome": "DRA. GABRIELA LEITE",
+    "area_atuacao": "BANCÁRIO",
+    "foto": "assets/img/equipe/5.jpeg",
+    "descricao": "ADVOGADA PARCEIRA"
+  },
+  {
+    "id": 6,
+    "nome": "DRA. ALLYNE GANDRA",
+    "area_atuacao": "CIVIL / CONSUMIDOR",
+    "foto": "assets/img/equipe/6.jpeg",
+    "descricao": ""
+  }
+]
