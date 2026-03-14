@@ -10,13 +10,15 @@ const area = computed(() => {
   return AreaAtuacao.find(item => item.id === id)
 })
 
+
 const breadcrumbs = computed(() => {
   return route.matched.filter(r => r.meta?.titulo).map(r => ({
-    name: r.meta.titulo,
+    name: r.meta?.titulo,
     path: r.path,
     title: r.name,
   }))
 })
+console.log("🚀 ~  ~ breadcrumbs: ", breadcrumbs.value);
 </script>
 
 <template>
@@ -25,7 +27,8 @@ const breadcrumbs = computed(() => {
       <div class="page-heading">
         <div class="breadcrumb-sub-title">
 
-          <h1>{{ area.titulo }}</h1>
+
+          <h1>{{ area?.titulo || breadcrumbs[0]?.name }}</h1>
 
           <ul class="breadcrumb-items">
             <li>
@@ -37,9 +40,12 @@ const breadcrumbs = computed(() => {
                 <i class="fi fi-br-arrow-alt-circle-right"></i>
               </li>
 
-              <li v-if="index !== breadcrumbs.length - 1">
+              <li v-if="breadcrumbs[0]?.name !== 'Áreas de atuação'" >
+                <i class="fi fi-br-arrow-alt-circle-right"></i>
+              </li>
+              <li v-if="index !== breadcrumbs.length - 2">
                 <RouterLink to="">
-                  {{ item.name }}
+                  {{ breadcrumbs[0]?.name }}
                 </RouterLink>
               </li>
 
@@ -60,6 +66,7 @@ const breadcrumbs = computed(() => {
   z-index: 9;
   padding: 89px 0;
 }
+
 .breadcrumb-wrapper::before {
   position: absolute;
   top: 0;

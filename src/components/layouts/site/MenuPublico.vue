@@ -149,12 +149,12 @@ onMounted(async () => {
               </ul>
             </li>
             <li>
-              <router-link :to="`noticias`">
+              <router-link :to="`/noticias`">
                 Artigos Blog
               </router-link>
             </li>
             <li>
-              <router-link :to="`quem-somos`">
+              <router-link :to="`/quem-somos`">
                 Quem Somos
               </router-link>
             </li>

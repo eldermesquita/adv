@@ -103,10 +103,10 @@ const publico = {
     },
     {
       path: 'quem-somos',
-      name: 'Quem somos',
+      name: 'Quem Somos',
       component: () => import('@/views/Contato.vue'),
       meta: {
-        titulo: 'Quem somos',
+        titulo: 'Quem Somos',
         exibir: true,
       },
     },
