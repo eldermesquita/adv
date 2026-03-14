@@ -2,53 +2,33 @@
 defineOptions({
   name: 'MenuNav',
 })
-import {computed, nextTick, onMounted} from 'vue'
-import {useRouter, useRoute} from 'vue-router'
-import {slugUrl, primeiraLetraMaiuscula} from "@/utils/funcoes.js";
+import {nextTick, onMounted} from 'vue'
+import {primeiraLetraMaiuscula, slugUrl} from "@/utils/funcoes.js";
 import $ from 'jquery'
 import AreaAtuacao from '@/dados/areaAtuacao.json'
-
-globalThis.$ = globalThis.jQuery = $
-const router = useRouter()
-const route = useRoute()
-
-
-const menus = computed(() => {
-  const layoutPublico = router.options.routes.find((r) => r.component && r.children)
-  const x = AreaAtuacao.find((r) => r.titulo)
-  console.log("🚀 ~  ~ x: ", x);
-
-  if (!layoutPublico) return []
-
-  return layoutPublico.children
-    .filter((r) => r.meta?.exibir)
-    .map((r) => ({
-      ...r,
-      children: r.children?.filter((c) => c.meta?.exibir) || [],
-    }))
-})
-
-const isActive = (menu) => {
-  return route.path === router.resolve(menu).path
-}
-
-
 import '@assets/js/jquery.meanmenu.min.js'
 import '@assets/css/meanmenu.css'
+
+globalThis.$ = globalThis.jQuery = $
 
 onMounted(async () => {
   try {
     await nextTick()
 
+    const $headerSticky = "#header-sticky"
+    const masonryLayout = ".masonry-layout"
+    const $searchWrap = $('.search-wrap')
+    const $navSearch = $('.nav-search')
+    const $searchClose = $('#search-close')
 
-    $(globalThis).scroll(function () {
+    $(globalThis).on("scroll", function () {
       if ($(this).scrollTop() > 250) {
-        $("#header-sticky").addClass("sticky");
+        $($headerSticky).addClass("sticky");
       } else {
-        $("#header-sticky").removeClass("sticky");
+        $($headerSticky).removeClass("sticky");
       }
     });
-    let masonryLayout = ".masonry-layout"
+
     if ($(masonryLayout).length) {
       $(masonryLayout).imagesLoaded(function () {
         $(masonryLayout).isotope({
@@ -56,6 +36,8 @@ onMounted(async () => {
         });
       });
     }
+
+
     $('#mobile-menu').meanmenu({
       meanMenuContainer: '.mobile-menu',
       meanScreenWidth: "1199",
@@ -78,10 +60,6 @@ onMounted(async () => {
       $('.body-overlay').removeClass('opened')
     })
 
-    //>> Search Popup Start <<//
-    const $searchWrap = $('.search-wrap')
-    const $navSearch = $('.nav-search')
-    const $searchClose = $('#search-close')
 
     $('.search-trigger').on('click', function (e) {
       e.preventDefault()
@@ -100,7 +78,7 @@ onMounted(async () => {
       $navSearch.add($searchClose).removeClass('open')
     }
 
-    $(document.body).on('click', function (e) {
+    $(document.body).on('click', function () {
       closeSearch()
     })
 
@@ -109,10 +87,10 @@ onMounted(async () => {
     })
 
     function loader() {
+      const $preloader = ".preloader"
       $(globalThis).on('load', function () {
-        // Animate loader off screen
-        $(".preloader").addClass('loaded');
-        $(".preloader").delay(600).fadeOut();
+        $($preloader).addClass('loaded');
+        $($preloader).delay(600).fadeOut();
       });
     }
 
@@ -160,31 +138,7 @@ onMounted(async () => {
             </li>
           </ul>
         </nav>
-        <!--        <nav id="mobile-menu">
-                  <ul>
-                    <li v-for="menu in menus" :key="menu.name" :class="{ active: isActive(menu) }">
 
-                      <router-link v-if="!menu.children.length"
-                        :to="`/areas-de-atuacao/${slugUrl(menu.meta.titulo)}`">
-                        {{ menu.meta.titulo }}
-                      </router-link>
-
-
-                      <a v-else href="javascript:void(0)">
-                        {{ menu.meta.titulo }}
-                        <i class="fas fa-angle-down"></i>
-                      </a>
-
-                      <ul class="submenu" v-if="menu.children.length">
-                        <li v-for="child in menu.children" :key="child.name">
-                          <router-link :to="{ name: child.name }">
-                            {{ child.meta.titulo }}
-                          </router-link>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </nav>-->
       </div>
     </div>
     <a href="#" class="search-trigger search-icon"><i class="fas fa-search"></i></a>
