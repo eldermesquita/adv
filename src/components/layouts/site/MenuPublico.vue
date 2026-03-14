@@ -181,14 +181,6 @@ onMounted(async () => {
   cursor: pointer;
 }
 
-/*.theme-btn-whatsapp.black-btn::before, .theme-btn-whatsapp.black-btn::after {
-  background-color: #051bff;
-}
-
-.theme-btn-whatsapp::after {
-  left: 0%;
-  bottom: 0%;
-}*/
 
 .theme-btn-whatsapp::before, .theme-btn-whatsapp::after {
   content: "";
