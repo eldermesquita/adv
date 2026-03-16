@@ -18,29 +18,25 @@ const breadcrumbs = computed(() => {
     title: r.name,
   }))
 })
-console.log("🚀 ~  ~ breadcrumbs: ", breadcrumbs.value);
+
 </script>
 
 <template>
-  <div class="breadcrumb-wrapper bg-cover1">
+  <div :class="['breadcrumb-wrapper', route.name === 'Quem Somos' ? 'bg-cover-contato' : 'bg-cover1']">
     <div class="container">
       <div class="page-heading">
         <div class="breadcrumb-sub-title">
-
-
           <h1>{{ area?.titulo || breadcrumbs[0]?.name }}</h1>
-
           <ul class="breadcrumb-items">
             <li>
               <RouterLink to="/">Início</RouterLink>
             </li>
-
             <template v-for="(item, index) in breadcrumbs" :key="index">
               <li v-if="index === breadcrumbs.length - 2" class="active">
                 <i class="fi fi-br-arrow-alt-circle-right"></i>
               </li>
 
-              <li v-if="breadcrumbs[0]?.name !== 'Áreas de atuação'" >
+              <li v-if="breadcrumbs[0]?.name !== 'Áreas de atuação'">
                 <i class="fi fi-br-arrow-alt-circle-right"></i>
               </li>
               <li v-if="index !== breadcrumbs.length - 2">
@@ -48,10 +44,7 @@ console.log("🚀 ~  ~ breadcrumbs: ", breadcrumbs.value);
                   {{ breadcrumbs[0]?.name }}
                 </RouterLink>
               </li>
-
-
             </template>
-
           </ul>
         </div>
       </div>
@@ -76,11 +69,15 @@ console.log("🚀 ~  ~ breadcrumbs: ", breadcrumbs.value);
   width: 100%;
   height: 100%;
   content: "";
-  /*background: linear-gradient(89deg, rgb(61 178 252) 15.79%, rgb(15 115 220) 91.12%);*/
   z-index: -1;
 }
 
 .bg-cover1 {
   background-image: url('@assets/img/breadcrumb.jpg') !important;
 }
+
+.bg-cover-contato {
+  background-image: url('@assets/img/breadcrumb-contato.png') !important;
+}
+
 </style>

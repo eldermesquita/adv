@@ -1,4 +1,8 @@
 <script setup>
+import { useContato } from '@/composable/useContato'
+
+const { getWhatsappLink } = useContato()
+
 defineOptions({
   name: 'PaginasConteudo',
 })
@@ -72,7 +76,8 @@ const servicos = computed(() => {
           <p>Atendimento especializado de forma Online em todo brasil</p>
           <p> e presencial em todo Estado de Roraima </p>
         </div>
-        <a href="" class="theme-btn white-btn">Falar agora com especialista</a>
+        <a :href="getWhatsappLink(`Olá, gostaria de falar com um especialista sobre ${area?.titulo || 'jurídico'}`)"
+           target="_blank" class="theme-btn white-btn">Falar agora com especialista</a>
       </div>
     </div>
   </section>

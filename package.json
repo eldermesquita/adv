@@ -31,6 +31,7 @@
     "magnific-popup": "^1.2.0",
     "pinia": "^3.0.4",
     "pinia-plugin-persistedstate": "^4.7.1",
+    "rss-parser": "^3.13.0",
     "swiper": "^12.0.3",
     "vue": "beta",
     "vue-router": "^5.0.2",

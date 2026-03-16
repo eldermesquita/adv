@@ -1,4 +1,7 @@
 <script setup>
+import { useContato } from '@/composable/useContato'
+
+const { getWhatsappLink } = useContato()
 import AOS from 'aos'
 import {nextTick, onMounted} from "vue";
 onMounted(async () => {
@@ -36,7 +39,8 @@ onMounted(async () => {
               todo Estado de Roraima e Online em todo brasil
             </p>
             <div class="hero-button mt-4">
-              <a href="causes.html" class="theme-btn">Falar com advogado</a>
+              <a :href="getWhatsappLink('Olá, gostaria de falar com um advogado.')"
+                 target="_blank" class="theme-btn">Falar com advogado</a>
             </div>
             <div class="feedback d-flex mt-xl-5">
               <div class="infu">
