@@ -19,5 +19,7 @@ import Equipe from "@/components/layouts/site/Equipe.vue";
   <AreaAtuacao/>
   <QuemSomos/>
   <Equipe/>
-  <NoticiaDestaque/>
+  <keep-alive>
+    <NoticiaDestaque/>
+  </keep-alive>
 </template>

@@ -4,6 +4,8 @@ import {RouterLink, useRouter} from 'vue-router'
 import AOS from 'aos'
 
 import $ from 'jquery'
+import AreaAtuacao from "@/dados/areaAtuacao.json";
+import {primeiraLetraMaiuscula, slugUrl} from "@/utils/funcoes.js";
 
 window.$ = window.jQuery = $
 const router = useRouter()
@@ -180,12 +182,14 @@ onMounted(async () => {
                 <h4>Àreas de atuação</h4>
               </div>
               <ul class="list-area">
-                <li v-for="r in areaAtuacaoRoutes" :key="r.path">
-                  <RouterLink :to="r.path" style="color:#FFFFFF" :title="r.meta?.descricao">
-                    <i class="fas fa-circle"></i>
-                    {{ r.name }}
-                  </RouterLink>
-                </li>
+
+                  <li v-for="menu in AreaAtuacao" :key="menu.name">
+                    <router-link v-if="menu.exibir"  style="color:#FFFFFF" :to="`/areas-de-atuacao/${menu.id}/${slugUrl(menu.titulo)}`">
+                      <i class="fas fa-circle"></i>
+                      {{ primeiraLetraMaiuscula(menu.titulo) }}
+                    </router-link>
+                  </li>
+
 
               </ul>
             </div>

@@ -1,13 +1,20 @@
 <script setup>
+import {computed, ref} from 'vue'
 import {useRoute} from 'vue-router'
+import AreaAtuacao from '@/dados/areaAtuacao.json'
+import Advogados from "@/dados/advogados.json";
 
 const route = useRoute()
-import {computed} from 'vue'
-import AreaAtuacao from '@/dados/areaAtuacao.json'
-
 const area = computed(() => {
   const id = Number(route.params.id)
   return AreaAtuacao.find(item => item.id === id)
+})
+
+const advogado = computed(() => {
+  if (!area.value) return null
+  const advogadoId = area.value.servicos?.find(s => s.advogados?.length > 0)?.advogados?.[0]
+  if (!advogadoId) return null
+  return Advogados.find(item => item.id === advogadoId)
 })
 
 
@@ -19,14 +26,30 @@ const breadcrumbs = computed(() => {
   }))
 })
 
+  console.log("🚀 ~  ~ advogado.value?.id: ", advogado.value?.id);
+const bgBreadCrumb = computed(() => {
+  switch (advogado.value?.id) {
+    case 1:
+      return 'bg-cover11'
+    case 3:
+      return 'bg-cover21'
+    case 5:
+      return 'bg-cover51'
+    case 6:
+      return 'bg-cover61'
+    default:
+      return 'bg-cover-contato'
+  }
+})
+
 </script>
 
 <template>
-  <div :class="['breadcrumb-wrapper', route.name === 'Quem Somos' ? 'bg-cover-contato' : 'bg-cover1']">
+  <div :class="['breadcrumb-wrapper', bgBreadCrumb]">
     <div class="container">
       <div class="page-heading">
         <div class="breadcrumb-sub-title">
-          <h1>{{ area?.titulo || breadcrumbs[0]?.name }}</h1>
+
           <ul class="breadcrumb-items">
             <li>
               <RouterLink to="/">Início</RouterLink>
@@ -45,6 +68,18 @@ const breadcrumbs = computed(() => {
                 </RouterLink>
               </li>
             </template>
+          </ul>
+          <h1>
+            {{ area?.titulo || breadcrumbs[0]?.name }}
+            <span v-if="advogado" class="advogado-nome"> {{ advogado.nome }}</span>
+          </h1>
+          <ul class="breadcrumb-items">
+            <li  class="active">
+              <a target="_blank" class="text-uppercase" :href="advogado.instagram" title="Seguir no instagram">
+                <i class="fi fi-brands-instagram mr-3"> instagram</i>
+              </a>
+
+            </li>
           </ul>
         </div>
       </div>
@@ -75,9 +110,27 @@ const breadcrumbs = computed(() => {
 .bg-cover1 {
   background-image: url('@assets/img/breadcrumb.jpg') !important;
 }
-
+.bg-cover11 {
+  background-image: url('@assets/img/equipe/11.png') !important;
+}
+.bg-cover21 {
+  background-image: url('@assets/img/equipe/21.png') !important;
+}
+.bg-cover51 {
+  background-image: url('@assets/img/equipe/51.png') !important;
+}
+.bg-cover61 {
+  background-image: url('@assets/img/equipe/61.png') !important;
+}
 .bg-cover-contato {
   background-image: url('@assets/img/breadcrumb-contato.png') !important;
+}
+
+.advogado-nome {
+  font-size: 0.8em;
+  font-weight: 400;
+  display: block;
+  margin-top: 5px;
 }
 
 </style>

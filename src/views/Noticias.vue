@@ -1,13 +1,33 @@
 <script setup>
-import {nextTick, onMounted, ref} from "vue";
+import {computed, nextTick, onMounted, ref, watch} from "vue";
 import AOS from 'aos'
 import noticias from '@/dados/noticias.json'
+import Paginacao from '@components/Paginacao.vue'
 
 const noticiasRandomicas = ref([]);
+const currentPage = ref(1);
+const itemsPerPage = 6;
 
 function embaralharNoticias(lista) {
-  return [...lista].sort(() => Math.random() - 0.5).slice(0, 3);
+  return [...lista].sort(() => Math.random() - 0.5);
 }
+
+const noticiasPaginadas = computed(() => {
+  const start = (currentPage.value - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  return noticiasRandomicas.value.slice(start, end);
+});
+
+const totalPaginas = computed(() => {
+  return Math.ceil(noticiasRandomicas.value.length / itemsPerPage);
+});
+
+watch(currentPage, () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  nextTick(() => {
+    AOS.refresh();
+  });
+});
 
 onMounted(async () => {
   try {
@@ -23,6 +43,8 @@ onMounted(async () => {
 </script>
 
 <template>
+
+
   <section class="blog-wrapper blog-1 section-padding section-bg">
     <div class="shape">
       <img class="shape-1" src="@assets/img/shape/shape-5-black.png" alt="">
@@ -38,7 +60,7 @@ onMounted(async () => {
 
       <div class="blog-inner">
         <div class="row">
-          <template v-for="(item,index) in noticiasRandomicas" :key="index">
+          <template v-for="(item,index) in noticiasPaginadas" :key="index">
             <div class="col-xl-4 col-lg-6 col-md-12">
               <div class="single-blog-item">
                 <div class="image" style="background-color: #f4f4f4">
@@ -56,9 +78,6 @@ onMounted(async () => {
                   <h3>
                     <a :href="item.fonte" target="_blank"> {{ item.titulo }}</a>
                   </h3>
-                  <p>
-                    {{ item.conteudo }}
-                  </p>
                   <a :href="item.fonte" target="_blank" class="link-btn">
                     Saiba mais <i class="far fa-long-arrow-right"></i>
                   </a>
@@ -69,6 +88,7 @@ onMounted(async () => {
           </template>
 
         </div>
+        <Paginacao v-model="currentPage" :total="totalPaginas" />
       </div>
     </div>
   </section>

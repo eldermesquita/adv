@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "titulo": "CRIMINAL",
+    "titulo": "CRIMINALISTA",
     "icone": "fi fi-sr-scale",
     "exibir": true,
     "descricao": "Defesa em processos criminais, inquéritos, audiências, habeas corpus e recursos, garantindo os direitos do cliente.",
@@ -153,7 +153,7 @@
   },
   {
     "id": 2,
-    "titulo": "PREVIDENCIÁRIO / FAMÍLIA",
+    "titulo": "PREVIDENCIÁRIO",
     "icone": "fi fi-sr-home-heart",
     "exibir": true,
     "descricao": "Atuação em aposentadorias, benefícios do INSS, divórcios, guarda, pensão, inventários e questões familiares.",
@@ -166,7 +166,7 @@
         "exibir": true,
         "tempo_resposta": "Até 48h",
         "advogados": [
-          2
+          5
         ]
       },
       {
@@ -177,7 +177,18 @@
         "exibir": true,
         "tempo_resposta": "Até 48h",
         "advogados": [
-          2
+          5
+        ]
+      },
+      {
+        "id": 200,
+        "nome": "Inventário",
+        "descricao": "Atuamos diretamente com a família para que haja correta administração e distribuição dos bens deixados por um ente querido.",
+        "icone": "family_restroom",
+        "exibir": true,
+        "tempo_resposta": "Até 48h",
+        "advogados": [
+         5
         ]
       },
       {
@@ -188,7 +199,18 @@
         "exibir": true,
         "tempo_resposta": "Até 24h",
         "advogados": [
-          2
+          5
+        ]
+      },
+      {
+        "id": 204,
+        "nome": "Usucapião",
+        "descricao": "A Usucapião permite que você reivindique a posse de um imóvel após uso contínuo, mesmo sem escritura formal.",
+        "icone": "heart_broken",
+        "exibir": true,
+        "tempo_resposta": "Até 24h",
+        "advogados": [
+          5
         ]
       },
       {
@@ -199,7 +221,7 @@
         "exibir": true,
         "tempo_resposta": "Até 24h",
         "advogados": [
-          2
+          5
         ]
       }
     ]
@@ -247,15 +269,8 @@
     ]
   },
   {
-    "id": 4,
-    "titulo": "BANCÁRIO",
-    "icone": "fi fi-sr-bank",
-    "exibir": false,
-    "descricao": "Advogada parceira em revisão de contratos, juros abusivos, renegociação de dívidas e ações contra bancos."
-  },
-  {
     "id": 5,
-    "titulo": "CIVIL / CONSUMIDOR",
+    "titulo": "CIVIL / FAMÍLIA",
     "icone": "fi fi-sr-document",
     "exibir": true,
     "descricao": "Atuação em indenizações, contratos, cobranças e defesa do consumidor em casos de falhas e abusos.",
@@ -268,7 +283,7 @@
         "exibir": true,
         "tempo_resposta": "Até 24h",
         "advogados": [
-          4
+          6
         ]
       },
       {
@@ -279,7 +294,7 @@
         "exibir": true,
         "tempo_resposta": "Até 24h",
         "advogados": [
-          4
+          6
         ]
       },
       {
@@ -290,7 +305,7 @@
         "exibir": true,
         "tempo_resposta": "Até 24h",
         "advogados": [
-          4
+         6
         ]
       }
     ]

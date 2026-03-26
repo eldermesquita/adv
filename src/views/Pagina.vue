@@ -1,13 +1,13 @@
 <script setup>
-import { useContato } from '@/composable/useContato'
-
-const { getWhatsappLink } = useContato()
-
 defineOptions({
   name: 'PaginasConteudo',
 })
+
 import {computed, defineProps} from 'vue'
 import AreaAtuacao from '@/dados/areaAtuacao.json'
+import { useContato } from '@/composable/useContato'
+
+const { getWhatsappLink } = useContato()
 
 const props = defineProps({
   id: {

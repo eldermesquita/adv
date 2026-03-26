@@ -1,17 +1,12 @@
-
 [
   {
     "id": 1,
     "nome": "DR. VICTOR CARVALHO",
-    "area_atuacao": "CRIMINAL",
+    "area_atuacao": "CRIMINALISTA",
     "foto": "assets/img/equipe/1.jpeg",
-    "descricao": ""
-  },
-  {
-    "id": 2,
-    "nome": "DRA. GABRIELA REGINA",
-    "area_atuacao": "PREVIDENCIÁRIO / FAMÍLIA",
-    "foto": "assets/img/equipe/3.jpeg",
+    "imagem": "assets/img/equipe/11.png",
+    "instagram":"https://www.instagram.com/advvictor/",
+    "exibir": true,
     "descricao": ""
   },
   {
@@ -19,27 +14,29 @@
     "nome": "DR. AQUILA SILVESTRE",
     "area_atuacao": "TRABALHISTA",
     "foto": "assets/img/equipe/2.jpeg",
-    "descricao": ""
-  },
-  {
-    "id": 4,
-    "nome": "DRA. KALLYNE OLIVEIRA",
-    "area_atuacao": "CRIMINAL",
-    "foto": "assets/img/equipe/4.jpeg",
+    "imagem": "assets/img/equipe/21.png",
+    "instagram":"https://www.instagram.com/advhelena.vcar/",
+    "exibir": true,
     "descricao": ""
   },
   {
     "id": 5,
-    "nome": "DRA. GABRIELA LEITE",
-    "area_atuacao": "BANCÁRIO",
-    "foto": "assets/img/equipe/5.jpeg",
+    "nome": "DRA. HELENA KING",
+    "area_atuacao": "PREVIDENCIÁRIO",
+    "foto": "assets/img/equipe/5.png",
+    "imagem": "assets/img/equipe/51.png",
+    "exibir": true,
+    "instagram":"https://www.instagram.com/advhelena.vcar/",
     "descricao": "ADVOGADA PARCEIRA"
   },
   {
     "id": 6,
-    "nome": "DRA. ALLYNE GANDRA",
-    "area_atuacao": "CIVIL / CONSUMIDOR",
-    "foto": "assets/img/equipe/6.jpeg",
+    "nome": "DRA. Roseany Dias",
+    "area_atuacao": "CIVIL / FAMÍLIA",
+    "foto": "assets/img/equipe/6.png",
+    "imagem": "assets/img/equipe/61.png",
+    "exibir": true,
+    "instagram":"https://www.instagram.com/advroseany.vcar/",
     "descricao": ""
   }
 ]
