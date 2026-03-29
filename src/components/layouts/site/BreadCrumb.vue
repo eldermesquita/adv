@@ -17,7 +17,17 @@ const advogado = computed(() => {
   return Advogados.find(item => item.id === advogadoId)
 })
 
+const rotas = useRoute()
+const exibir= computed(() => {
+  const rotasIgnoradas = ['Início', 'Noticias','Quem Somos']
+  const pathIniciaCom = ['/noticia/']
 
+  if (rotasIgnoradas.includes(rotas.name)) {
+    return false
+  }
+  return !pathIniciaCom.some(path => rotas.path.startsWith(path))
+
+})
 const breadcrumbs = computed(() => {
   return route.matched.filter(r => r.meta?.titulo).map(r => ({
     name: r.meta?.titulo,
@@ -26,7 +36,6 @@ const breadcrumbs = computed(() => {
   }))
 })
 
-  console.log("🚀 ~  ~ advogado.value?.id: ", advogado.value?.id);
 const bgBreadCrumb = computed(() => {
   switch (advogado.value?.id) {
     case 1:
@@ -73,7 +82,7 @@ const bgBreadCrumb = computed(() => {
             {{ area?.titulo || breadcrumbs[0]?.name }}
             <span v-if="advogado" class="advogado-nome"> {{ advogado.nome }}</span>
           </h1>
-          <ul class="breadcrumb-items">
+          <ul v-if="exibir" class="breadcrumb-items">
             <li  class="active">
               <a target="_blank" class="text-uppercase" :href="advogado.instagram" title="Seguir no instagram">
                 <i class="fi fi-brands-instagram mr-3"> instagram</i>

@@ -3,6 +3,7 @@ import {computed, nextTick, onMounted, ref, watch} from "vue";
 import AOS from 'aos'
 import noticias from '@/dados/noticias.json'
 import Paginacao from '@components/Paginacao.vue'
+import {slugUrl, formatarDataPtBr} from "@/utils/funcoes.js";
 
 const noticiasRandomicas = ref([]);
 const currentPage = ref(1);
@@ -23,7 +24,7 @@ const totalPaginas = computed(() => {
 });
 
 watch(currentPage, () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({top: 0, behavior: 'smooth'});
   nextTick(() => {
     AOS.refresh();
   });
@@ -64,7 +65,7 @@ onMounted(async () => {
             <div class="col-xl-4 col-lg-6 col-md-12">
               <div class="single-blog-item">
                 <div class="image" style="background-color: #f4f4f4">
-                  <img src="@assets/img/imagem-padrao-azul.png" :alt="item.titulo" width="374px" height="282px">
+                  <img :src="item.imagem" :alt="item.titulo" width="374px" height="282px">
                   <img src="@assets/img/imagem-padrao.png" :alt="item.titulo" width="374px" height="282px">
                 </div>
                 <div class="content">
@@ -72,15 +73,20 @@ onMounted(async () => {
                     <li>{{ item.area_atuacao }}</li>
                     <li><i class="fas fa-circle"></i></li>
                     <li>
-                      {{ item.data }}
+                      {{ formatarDataPtBr(item.data) }}
                     </li>
                   </ul>
                   <h3>
-                    <a :href="item.fonte" target="_blank"> {{ item.titulo }}</a>
+                    <router-link :title="item.titulo"
+                                 :to="`/noticia/${item.id}/${slugUrl(item.titulo)}`">
+                      {{ item.titulo }}
+                    </router-link>
                   </h3>
-                  <a :href="item.fonte" target="_blank" class="link-btn">
+
+                  <router-link class="link-btn" :title="item.titulo"
+                               :to="`/noticia/${item.id}/${slugUrl(item.titulo)}`">
                     Saiba mais <i class="far fa-long-arrow-right"></i>
-                  </a>
+                  </router-link>
                 </div>
               </div>
             </div>
@@ -88,7 +94,7 @@ onMounted(async () => {
           </template>
 
         </div>
-        <Paginacao v-model="currentPage" :total="totalPaginas" />
+        <Paginacao v-model="currentPage" :total="totalPaginas"/>
       </div>
     </div>
   </section>

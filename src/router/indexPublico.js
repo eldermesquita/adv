@@ -52,12 +52,31 @@ const publico = {
     },
     {
       path: 'noticias',
-      name: 'Artigos',
+      name: 'Noticias',
       component: () => import('@/views/Noticias.vue'),
       meta: {
         titulo: 'Artigos Blog',
         exibir: true,
       },
+    },
+    {
+      path: 'noticia/:id/:titulo',
+      name: 'Noticia',
+      component: () => import('@/views/Noticia.vue'),
+      props: (route) => ({
+        id: route.params.id,
+        titulo: route.params.titulo,
+      }),
+      beforeEnter: (to) => {
+        to.meta.titulo = primeiraLetraMaiuscula(to.params.titulo)
+        to.name = primeiraLetraMaiuscula(to.params.titulo)
+      },
+      meta: {
+        titulo: 'PÁGINA DE NOTÍCIA',
+        descricao: "Atuação na defesa e acompanhamento de processos criminais, oferecendo assessoria jurídica em inquéritos policiais, audiências de custódia, habeas corpus, recursos e demais medidas judiciais. Compromisso com a ampla defesa, o contraditório e a garantia dos direitos fundamentais do cliente.",
+        icone: "fi fi-sr-scale",
+        exibir: false
+      }
     },
     {
       path: 'advogados',

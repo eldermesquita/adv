@@ -2,6 +2,7 @@
 import {nextTick, onMounted, ref} from "vue";
 import AOS from 'aos'
 import noticias from '@/dados/noticias.json'
+import {slugUrl, formatarDataPtBr, textoComReticencias} from "@/utils/funcoes.js";
 
 const noticiasRandomicas = ref([]);
 
@@ -42,7 +43,8 @@ onMounted(async () => {
             <div class="col-xl-4 col-lg-6 col-md-12">
               <div class="single-blog-item">
                 <div class="image" style="background-color: #f4f4f4">
-                  <img src="@assets/img/imagem-padrao-azul.png" :alt="item.titulo" width="374px" height="282px">
+
+                  <img :src="item.imagem" :alt="item.titulo" width="374px" height="282px">
                   <img src="@assets/img/imagem-padrao.png" :alt="item.titulo" width="374px" height="282px">
                 </div>
                 <div class="content">
@@ -50,18 +52,22 @@ onMounted(async () => {
                     <li>{{ item.area_atuacao }}</li>
                     <li><i class="fas fa-circle"></i></li>
                     <li>
-                      {{ item.data }}
+                      {{ formatarDataPtBr(item.data) }}
                     </li>
                   </ul>
                   <h3>
-                    <a :href="item.fonte" target="_blank"> {{ item.titulo }}</a>
+                    <router-link :title="item.titulo"
+                                 :to="`/noticia/${item.id}/${slugUrl(item.titulo)}`">
+                      {{ item.titulo }}
+                    </router-link>
                   </h3>
                   <p>
-                    {{ item.conteudo }}
+                    {{ textoComReticencias(item.conteudo, 150) }}
                   </p>
-                  <a :href="item.fonte" target="_blank" class="link-btn">
+                  <router-link class="link-btn" :title="item.titulo"
+                               :to="`/noticia/${item.id}/${slugUrl(item.titulo)}`">
                     Saiba mais <i class="far fa-long-arrow-right"></i>
-                  </a>
+                  </router-link>
                 </div>
               </div>
             </div>
