@@ -89,8 +89,4 @@ const semPadding = computed(() => route.path.startsWith('/noticia/'))
   </section>
 
 </template>
-<style>
-.thumb-noticia {
-  background-image: url('@assets/img/news/post-4.jpg');
-}
-</style>
+
