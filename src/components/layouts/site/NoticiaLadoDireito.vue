@@ -1,108 +1,110 @@
 <script setup>
+import {RouterLink} from "vue-router";
+import {computed, nextTick, onMounted, ref} from "vue";
+import AOS from 'aos'
+import noticias from '@/dados/noticias.json'
+import {formatarDataPtBr, primeiraLetraMaiuscula, slugUrl, textoComReticencias} from "@/utils/funcoes.js";
+import Advogados from "@/dados/advogados.json";
+import AreaAtuacao from "@/dados/areaAtuacao.json";
+import {useContato} from '@/composable/useContato'
+const {getWhatsappLink} = useContato()
+const props = defineProps({
+  noticia: {
+    type: Object,
+    default: null
+  }
+})
 
+const advogadoDaNoticia = computed(() => {
+  if (props.noticia && props.noticia.advogados && props.noticia.advogados.length > 0) {
+    const idAdvogado = props.noticia.advogados[0];
+    return Advogados.find(adv => adv.id === idAdvogado);
+  }
+  return null;
+});
+
+const noticiasRandomicas = ref([]);
+
+function embaralharNoticias(lista) {
+  return [...lista].sort(() => Math.random() - 0.5).slice(0, 3);
+}
+
+onMounted(async () => {
+  try {
+    await nextTick()
+    noticiasRandomicas.value = embaralharNoticias(noticias);
+
+    AOS.refresh()
+
+  } catch (error) {
+    console.error('Erro ao carregar o noticias ', error)
+  }
+})
 </script>
 
 <template>
   <div class="col-12 col-xxl-4 col-xl-5">
     <div class="main-sidebar">
-      <div class="single-sidebar-widget  fadeInUp" >
-        <div class="blog-author-info text-center">
+      <div class="single-sidebar-widget  fadeInUp">
+        <div class="blog-author-info text-center" v-if="advogadoDaNoticia">
           <div class="image">
-            <img src="@assets/img/blog/pp4.jpg" alt="">
+            <img :src="`/src/${advogadoDaNoticia.foto}`" :alt="`${advogadoDaNoticia.nome} - ${advogadoDaNoticia.area_atuacao}`">
           </div>
-          <h5 class="mt-3">Rosalina D. Willaim</h5>
-          <p class="mt-1">Blogger/Photographer</p>
-          <p class="mt-3">he whimsically named Egg Canvas is the
-            design director and photographer
-            in New York. Why the nam</p>
-          <div class="social-link mt-3">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-vimeo-v"></i></a>
-            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+          <h5 class="mt-3">{{ advogadoDaNoticia.nome }}</h5>
+          <p class="mt-1">{{ advogadoDaNoticia.area_atuacao }}</p>
+          <div class="social-link mt-3" v-if="advogadoDaNoticia.instagram">
+            <a :href="advogadoDaNoticia.instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a target="_blank" :href="getWhatsappLink(`Olá, gostaria de falar com ${advogadoDaNoticia.nome} especialista em ${advogadoDaNoticia.area_atuacao || 'jurídico'}`)" title="Falar agora com especialista">
+              <i class="fab fa-whatsapp fa-3x"></i></a>
           </div>
-        </div>
+          </div>
+
       </div>
-      <div class="single-sidebar-widget  fadeInUp" >
+      <div class="single-sidebar-widget  fadeInUp">
         <div class="wid-title">
-          <h3>Search here</h3>
-        </div>
-        <div class="search_widget">
-          <form action="#">
-            <input type="text" placeholder="Search here...">
-            <button type="submit"><i class="fal fa-search"></i></button>
-          </form>
-        </div>
-      </div>
-      <div class="single-sidebar-widget  fadeInUp" >
-        <div class="wid-title">
-          <h3>Recent News</h3>
+          <h3>Artigos mais recentes</h3>
         </div>
         <div class="popular-posts">
-          <div class="single-post-item">
-            <div class="thumb bg-cover" style="background-image: url('@assets/img/blog/pp1.jpg');"></div>
-            <div class="post-content">
-              <div class="post-date">
-                <i class="fal fa-calendar"></i>29 August, 2025
+          <template v-for="(item,index) in noticiasRandomicas" :key="index">
+            <div class="single-post-item">
+              <div class="thumb bg-cover" :style="`background-image: url('${item?.imagem}')`">
               </div>
-              <h5><a href="blog-details.html">
-                Smart About Packaging, Product Design</a></h5>
-            </div>
-          </div>
-          <div class="single-post-item">
-            <div class="thumb bg-cover" style="background-image: url('@assets/img/blog/pp2.jpg');"></div>
-            <div class="post-content">
-              <div class="post-date">
-                <i class="fal fa-calendar"></i>29 August, 2025
+              <div class="post-content">
+                <div class="post-date">
+                  <i class="fi fi-br-calendar"></i>
+                  {{ formatarDataPtBr(item.data) }}
+                </div>
+
+                <h5>
+                  <router-link :title="item.titulo"
+                               :to="`/noticia/${item.id}/${slugUrl(item.titulo)}`">
+                    {{ textoComReticencias(item.titulo, 40) }}
+                  </router-link>
+                </h5>
+                <div class="post-date">
+                  {{ primeiraLetraMaiuscula(item.area_atuacao) }}
+                </div>
               </div>
-              <h5><a href="blog-details.html">Drivers Deliver Much More Than
-                Products</a></h5>
             </div>
-          </div>
-          <div class="single-post-item">
-            <div class="thumb bg-cover" style="background-image: url('@assets/img/blog/pp3.jpg');"></div>
-            <div class="post-content">
-              <div class="post-date">
-                <i class="fal fa-calendar"></i>29 August, 2025
-              </div>
-              <h5><a href="blog-details.html">
-                Tips to Lowering Freight Shipping Costs</a></h5>
-            </div>
-          </div>
+          </template>
         </div>
       </div>
-      <div class="single-sidebar-widget  fadeInUp" >
+      <div class="single-sidebar-widget  fadeInUp">
         <div class="wid-title">
-          <h3>Categories</h3>
+          <h3>Àreas de atuação</h3>
         </div>
         <div class="widget_categories">
           <ul>
-            <li><a href="news.html">Data Visualization <span>02</span></a></li>
-            <li><a href="news.html">Product Development <span>06</span></a></li>
-            <li><a href="news.html">Security System <span>11</span></a></li>
-            <li><a href="news.html">UI/UX Designing <span>05</span></a></li>
+            <li v-for="menu in AreaAtuacao" :key="menu.name">
+              <router-link v-if="menu.exibir" :to="`/areas-de-atuacao/${menu.id}/${slugUrl(menu.titulo)}`">
+                {{ primeiraLetraMaiuscula(menu.titulo) }} <span> {{ menu.id }} </span>
+              </router-link>
+            </li>
           </ul>
-        </div>
-      </div>
-      <div class="single-sidebar-widget  fadeInUp" >
-        <div class="wid-title">
-          <h3>Popular Tags</h3>
-        </div>
-        <div class="tagcloud-2">
-          <a href="news.html">Tourist</a>
-          <a href="news-details.html">Traveling</a>
-          <a href="news-details.html">Cave</a>
-          <a href="news-details.html">Sky Dive</a>
-          <a href="news-details.html">hill Climb</a>
-          <a href="news-details.html">Oppos</a>
-          <a href="news-details.html">landing </a>
-          <a href="news-details.html">Oppos</a>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<style scoped>
 
-</style>

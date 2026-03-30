@@ -141,7 +141,6 @@ onMounted(async () => {
 
       </div>
     </div>
-    <a href="#" class="search-trigger search-icon"><i class="fas fa-search"></i></a>
     <div class="header-button  d-none d-sm-block">
       <a href="#" class="theme-btn-whatsapp black-btn ">
         whatsapp

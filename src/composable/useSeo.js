@@ -1,7 +1,7 @@
 
 const SITE_NAME = 'Carvalho Advocacia'
-const SITE_URL = 'https://www.carvalhoadvocaciarr.com.br'
-const DEFAULT_IMAGE = `${SITE_URL}/assets/img/logo-2.png`
+const SITE_URL = 'http://localhost:5173'
+const DEFAULT_IMAGE = `/src/assets/img/imagem-padrao.png`
 const DEFAULT_DESCRIPTION = 'Sociedade Unipessoal de Advocacia — Defesa Criminal, Previdenciário, Trabalhista e Cível em Roraima.'
 
 function setMeta(attr, key, value) {
@@ -34,7 +34,7 @@ export function atualizarSeo(route) {
   const titulo = meta.titulo ? `${meta.titulo} | ${SITE_NAME}` : SITE_NAME
   const descricao = meta.descricao || DEFAULT_DESCRIPTION
   const url = `${SITE_URL}${route.fullPath}`
-  const imagem = meta.imagem || DEFAULT_IMAGE
+  const imagem =  DEFAULT_IMAGE
 
   // Title
   document.title = titulo
@@ -53,6 +53,10 @@ export function atualizarSeo(route) {
   setMeta('property', 'og:site_name', SITE_NAME)
   setMeta('property', 'og:locale', 'pt_BR')
 
+  /*<meta property="og:title" content="Título do seu post">
+    <meta property="og:description" content="Descrição do conteúdo">
+    <meta property="og:image" content="URL_DA_IMAGEM">
+    <meta property="og:url" content="URL_DO_POST">*/
   // Canonical
   setCanonical(url)
 }

@@ -1,5 +1,5 @@
 <script setup>
-import {computed, ref} from 'vue'
+import {computed} from 'vue'
 import {useRoute} from 'vue-router'
 import AreaAtuacao from '@/dados/areaAtuacao.json'
 import Advogados from "@/dados/advogados.json";
@@ -19,13 +19,9 @@ const advogado = computed(() => {
 
 const rotas = useRoute()
 const exibir= computed(() => {
-  const rotasIgnoradas = ['Início', 'Noticias','Quem Somos']
-  const pathIniciaCom = ['/noticia/']
+  const rotasIgnoradas = ['Início', 'Noticias','Quem Somos', '/noticia/']
 
-  if (rotasIgnoradas.includes(rotas.name)) {
-    return false
-  }
-  return !pathIniciaCom.some(path => rotas.path.startsWith(path))
+  return !rotasIgnoradas.some(item => rotas.name === item || rotas.path.startsWith(item))
 
 })
 const breadcrumbs = computed(() => {

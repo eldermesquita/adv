@@ -11,7 +11,9 @@ import BreadCrumb from "@components/layouts/site/BreadCrumb.vue"
 
 const rotas = useRoute()
 const exibirBreadcrumb = computed(() => {
-  return rotas.name !== 'Início'
+  const rotasIgnoradas = ['Início','/noticia/']
+  return !rotasIgnoradas.some(item => rotas.name === item || rotas.path.startsWith(item))
+  //return rotas.name !== 'Início'
 })
 </script>
 
