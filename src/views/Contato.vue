@@ -1,11 +1,11 @@
 <script setup>
-import { useContato } from '@/composable/useContato'
-
-const { getWhatsappLink } = useContato()
-
 defineOptions({
   name: 'FalaConosco',
 })
+import FalarAgora from "@/components/layouts/site/FalarAgora.vue";
+import { useContato } from '@/composable/useContato'
+const { getWhatsappLink } = useContato()
+
 </script>
 
 <template>
@@ -55,4 +55,5 @@ defineOptions({
       width="600" height="450" style="border:0;" title="Mapa do Google" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
   </div>
+  <FalarAgora :id="0" />
 </template>

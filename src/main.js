@@ -8,7 +8,7 @@ import '@assets/css/magnific-popup.css'
 import '@assets/css/jquery-ui.css'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import ('@assets/css/animate.css')
+import 'animate.css';
 import { dom, library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'

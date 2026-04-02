@@ -18,8 +18,8 @@ const advogado = computed(() => {
 })
 
 const rotas = useRoute()
-const exibir= computed(() => {
-  const rotasIgnoradas = ['Início', 'Noticias','Quem Somos', '/noticia/']
+const exibir = computed(() => {
+  const rotasIgnoradas = ['Início', 'Noticias', 'Quem Somos', '/noticia/', 'advogados']
 
   return !rotasIgnoradas.some(item => rotas.name === item || rotas.path.startsWith(item))
 
@@ -79,8 +79,8 @@ const bgBreadCrumb = computed(() => {
             <span v-if="advogado" class="advogado-nome"> {{ advogado.nome }}</span>
           </h1>
           <ul v-if="exibir" class="breadcrumb-items">
-            <li  class="active">
-              <a target="_blank" class="text-uppercase" :href="advogado.instagram" title="Seguir no instagram">
+            <li class="active">
+              <a target="_blank" class="text-uppercase" :href="advogado?.instagram" title="Seguir no instagram">
                 <i class="fi fi-brands-instagram mr-3"> instagram</i>
               </a>
 
@@ -115,18 +115,23 @@ const bgBreadCrumb = computed(() => {
 .bg-cover1 {
   background-image: url('@assets/img/breadcrumb.jpg') !important;
 }
+
 .bg-cover11 {
   background-image: url('@assets/img/equipe/11.png') !important;
 }
+
 .bg-cover21 {
   background-image: url('@assets/img/equipe/21.png') !important;
 }
+
 .bg-cover51 {
   background-image: url('@assets/img/equipe/51.png') !important;
 }
+
 .bg-cover61 {
   background-image: url('@assets/img/equipe/61.png') !important;
 }
+
 .bg-cover-contato {
   background-image: url('@assets/img/breadcrumb-contato.png') !important;
 }

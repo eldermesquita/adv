@@ -5,6 +5,7 @@ import LinkLadoDireito from '@components/Layouts/Site/NoticiaLadoDireito.vue'
 import noticias from '@/dados/noticias.json'
 import {formatarDataPtBr} from "@/utils/funcoes.js";
 import {useContato} from "@/composable/useContato.js";
+import FalarAgora from "@/components/layouts/site/FalarAgora.vue";
 
 defineOptions({
   name: 'NoticiasDetalhes',
@@ -33,7 +34,7 @@ const semPadding = computed(() => route.path.startsWith('/noticia/'))
 
 <template>
   <section :class="['blog-wrapper', { 'section-padding': !semPadding }]" v-if="noticia">
-            <hr>
+    <hr>
     <div class="container">
       <div class="news-area">
         <div class="row">
@@ -47,7 +48,7 @@ const semPadding = computed(() => route.path.startsWith('/noticia/'))
 
                 <div class="post-content pt-0">
                   <div class="post-meta mt-3">
-                    <span><i class="fi fi-br-calendar"></i>{{formatarDataPtBr(noticia.data) }} </span>|
+                    <span><i class="fi fi-br-calendar"></i>{{ formatarDataPtBr(noticia.data) }} </span>|
                     <span><i class="fi fi-bs-api"></i> {{ noticia.area_atuacao }}</span> |
 
                   </div>
@@ -75,7 +76,7 @@ const semPadding = computed(() => route.path.startsWith('/noticia/'))
                   </div>
                 </div>
               </div>
-              </div>
+            </div>
           </div>
           <LinkLadoDireito :noticia="noticia"/>
         </div>
@@ -87,6 +88,6 @@ const semPadding = computed(() => route.path.startsWith('/noticia/'))
       <h3>Notícia não encontrada</h3>
     </div>
   </section>
-
+  <FalarAgora :id="0"/>
 </template>
 

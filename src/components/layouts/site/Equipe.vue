@@ -3,7 +3,12 @@ import AOS from 'aos'
 import {nextTick, onMounted} from "vue";
 import Advogados from "@/dados/advogados.json";
 import {useContato} from '@/composable/useContato'
+
 const {getWhatsappLink} = useContato()
+
+const getImageUrl = (name) => {
+  return new URL(`../../../assets/img/equipe/${name}`, import.meta.url).href
+}
 
 onMounted(async () => {
   try {
@@ -44,7 +49,7 @@ onMounted(async () => {
               <div class="team-image">
                 <div class="image">
                   <a target="_blank" :href="item.instagram" title="Seguir no instagram">
-                    <img :src="`src/${item.foto}`" :alt="`${item.nome} - ${item.area_atuacao}`">
+                    <img :src="getImageUrl(item.foto)" :alt="`${item.nome} - ${item.area_atuacao}`">
                   </a>
                 </div>
                 <div class="social-icon">

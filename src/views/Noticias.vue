@@ -1,9 +1,10 @@
 <script setup>
 import {computed, nextTick, onMounted, ref, watch} from "vue";
 import AOS from 'aos'
+import {slugUrl, formatarDataPtBr} from "@/utils/funcoes.js";
 import noticias from '@/dados/noticias.json'
 import Paginacao from '@components/Paginacao.vue'
-import {slugUrl, formatarDataPtBr} from "@/utils/funcoes.js";
+import FalarAgora from "@/components/layouts/site/FalarAgora.vue";
 
 const noticiasRandomicas = ref([]);
 const currentPage = ref(1);
@@ -98,6 +99,7 @@ onMounted(async () => {
       </div>
     </div>
   </section>
+  <FalarAgora :id="0" />
 </template>
 
 <style>

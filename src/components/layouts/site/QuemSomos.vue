@@ -42,7 +42,7 @@ const {getWhatsappLink} = useContato()
 
             <div class="about-infu">
               <router-link class="theme-btn black-btn" :to="`/advogados`">
-                Leia nais
+                Leia mais
               </router-link>
               <div class="contact-us">
                 <img src="@assets/img/about/03.png" alt="">

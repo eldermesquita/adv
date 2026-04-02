@@ -8,6 +8,10 @@ import Advogados from "@/dados/advogados.json";
 import AreaAtuacao from "@/dados/areaAtuacao.json";
 import {useContato} from '@/composable/useContato'
 const {getWhatsappLink} = useContato()
+
+const getImageUrl = (name) => {
+  return new URL(`../../../assets/img/equipe/${name}`, import.meta.url).href
+}
 const props = defineProps({
   noticia: {
     type: Object,
@@ -48,7 +52,7 @@ onMounted(async () => {
       <div class="single-sidebar-widget  fadeInUp">
         <div class="blog-author-info text-center" v-if="advogadoDaNoticia">
           <div class="image">
-            <img :src="`/src/${advogadoDaNoticia.foto}`" :alt="`${advogadoDaNoticia.nome} - ${advogadoDaNoticia.area_atuacao}`">
+            <img :src="getImageUrl(advogadoDaNoticia.foto)" :alt="`${advogadoDaNoticia.nome} - ${advogadoDaNoticia.area_atuacao}`">
           </div>
           <h5 class="mt-3">{{ advogadoDaNoticia.nome }}</h5>
           <p class="mt-1">{{ advogadoDaNoticia.area_atuacao }}</p>

@@ -171,55 +171,88 @@
       },
       {
         "id": 202,
-        "nome": "Pensão por Morte",
-        "descricao": "Solicitação de pensão para dependentes do segurado falecido.",
-        "icone": "family_restroom",
+        "nome": "Auxílio-doença",
+        "descricao": "Solicitação e acompanhamento de benefício por incapacidade temporária.",
+        "icone": "file-medical",
         "exibir": true,
         "tempo_resposta": "Até 48h",
         "advogados": [
           5
-        ]
-      },
-      {
-        "id": 200,
-        "nome": "Inventário",
-        "descricao": "Atuamos diretamente com a família para que haja correta administração e distribuição dos bens deixados por um ente querido.",
-        "icone": "family_restroom",
-        "exibir": true,
-        "tempo_resposta": "Até 48h",
-        "advogados": [
-         5
         ]
       },
       {
         "id": 203,
-        "nome": "Divórcio",
-        "descricao": "Divórcio judicial ou extrajudicial com segurança jurídica.",
-        "icone": "heart_broken",
+        "nome": "Aposentadoria por invalidez",
+        "descricao": "Atuação para concessão de benefício por incapacidade permanente.",
+        "icone": "wheelchair",
         "exibir": true,
-        "tempo_resposta": "Até 24h",
+        "tempo_resposta": "Até 48h",
         "advogados": [
           5
         ]
       },
       {
         "id": 204,
-        "nome": "Usucapião",
-        "descricao": "A Usucapião permite que você reivindique a posse de um imóvel após uso contínuo, mesmo sem escritura formal.",
-        "icone": "heart_broken",
+        "nome": "Pensão por morte",
+        "descricao": "Solicitação de benefício para dependentes do segurado falecido.",
+        "icone": "hands-holding-heart",
         "exibir": true,
-        "tempo_resposta": "Até 24h",
+        "tempo_resposta": "Até 48h",
         "advogados": [
           5
         ]
       },
       {
-        "id": 204,
-        "nome": "Pensão Alimentícia",
-        "descricao": "Ações de fixação, revisão ou cobrança de pensão alimentícia.",
-        "icone": "restaurant",
+        "id": 205,
+        "nome": "Revisão de benefício",
+        "descricao": "Análise e correção de valores pagos pelo INSS.",
+        "icone": "search-dollar",
         "exibir": true,
-        "tempo_resposta": "Até 24h",
+        "tempo_resposta": "Até 72h",
+        "advogados": [
+          5
+        ]
+      },
+      {
+        "id": 206,
+        "nome": "Planejamento previdenciário",
+        "descricao": "Estratégia para obter o melhor benefício no futuro.",
+        "icone": "chart-line",
+        "exibir": true,
+        "tempo_resposta": "Até 72h",
+        "advogados": [
+          5
+        ]
+      },
+      {
+        "id": 207,
+        "nome": "LOAS/BPC",
+        "descricao": "Solicitação do benefício assistencial para idosos e pessoas com deficiência.",
+        "icone": "hand-holding-usd",
+        "exibir": true,
+        "tempo_resposta": "Até 48h",
+        "advogados": [
+          5
+        ]
+      },
+      {
+        "id": 208,
+        "nome": "Recurso no INSS",
+        "descricao": "Defesa administrativa contra negativas de benefícios.",
+        "icone": "gavel",
+        "exibir": true,
+        "tempo_resposta": "Até 72h",
+        "advogados": [
+          5
+        ]
+      },
+      {
+        "id": 209,
+        "nome": "Ação judicial previdenciária",
+        "descricao": "Processos judiciais contra o INSS para concessão ou revisão de benefícios.",
+        "icone": "balance-scale",
+        "exibir": true,
+        "tempo_resposta": "Até 72h",
         "advogados": [
           5
         ]
@@ -265,6 +298,28 @@
         "advogados": [
           3
         ]
+      },
+      {
+        "id": 403,
+        "nome": "Assédio moral",
+        "descricao": "Atuação em casos de assédio no ambiente de trabalho.",
+        "icone": "exclamation-triangle",
+        "exibir": true,
+        "tempo_resposta": "Até 72h",
+        "advogados": [
+         3
+        ]
+      },
+      {
+        "id": 404,
+        "nome": "Vínculo empregatício",
+        "descricao": "Reconhecimento de vínculo de trabalho não registrado.",
+        "icone": "user-check",
+        "exibir": true,
+        "tempo_resposta": "Até 72h",
+        "advogados": [
+         3
+        ]
       }
     ]
   },
@@ -287,10 +342,32 @@
         ]
       },
       {
-        "id": 402,
-        "nome": "Problemas com Bancos",
-        "descricao": "Defesa contra cobranças abusivas e contratos irregulares.",
-        "icone": "account_balance",
+        "id": 202,
+        "nome": "Reconhecimento de paternidade ou maternidade socioafetiva ",
+        "descricao": "Afeto e na convivência, sem laços de sangue, com os mesmos efeitos legais da biológica.",
+        "icone": "family_restroom",
+        "exibir": true,
+        "tempo_resposta": "Até 48h",
+        "advogados": [
+        6
+        ]
+      },
+      {
+        "id": 200,
+        "nome": "Inventário",
+        "descricao": "Atuamos diretamente com a família para que haja correta administração e distribuição dos bens deixados por um ente querido.",
+        "icone": "family_restroom",
+        "exibir": true,
+        "tempo_resposta": "Até 48h",
+        "advogados": [
+          6
+        ]
+      },
+      {
+        "id": 203,
+        "nome": "Divórcio",
+        "descricao": "Divórcio judicial ou extrajudicial com segurança jurídica.",
+        "icone": "heart_broken",
         "exibir": true,
         "tempo_resposta": "Até 24h",
         "advogados": [
@@ -298,12 +375,43 @@
         ]
       },
       {
-        "id": 403,
-        "nome": "Defesa do Consumidor",
-        "descricao": "Ações contra empresas por produtos ou serviços defeituosos.",
-        "icone": "shopping_cart",
+        "id": 204,
+        "nome": "Usucapião",
+        "descricao": "A Usucapião permite que você reivindique a posse de um imóvel após uso contínuo, mesmo sem escritura formal.",
+        "icone": "heart_broken",
         "exibir": true,
         "tempo_resposta": "Até 24h",
+        "advogados": [
+         6
+        ]
+      },
+      {
+        "id": 204,
+        "nome": "Pensão Alimentícia",
+        "descricao": "Ações de fixação, revisão ou cobrança de pensão alimentícia.",
+        "icone": "restaurant",
+        "exibir": true,
+        "tempo_resposta": "Até 24h",
+        "advogados": [
+         6
+        ]
+      },{
+        "id": 303,
+        "nome": "Guarda de filhos",
+        "descricao": "Regulamentação de guarda e convivência familiar.",
+        "icone": "child",
+        "exibir": true,
+        "tempo_resposta": "Até 48h",
+        "advogados": [
+         6
+        ]
+      },{
+        "id": 305,
+        "nome": "Reconhecimento de união estável",
+        "descricao": "Formalização e dissolução de união estável.",
+        "icone": "ring",
+        "exibir": true,
+        "tempo_resposta": "Até 72h",
         "advogados": [
          6
         ]

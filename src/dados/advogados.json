@@ -3,8 +3,8 @@
     "id": 1,
     "nome": "DR. VICTOR CARVALHO",
     "area_atuacao": "CRIMINALISTA",
-    "foto": "assets/img/equipe/1.jpeg",
-    "imagem": "assets/img/equipe/11.png",
+    "foto": "1.jpeg",
+    "imagem": "11.png",
     "instagram":"https://www.instagram.com/advvictor/",
     "exibir": true,
     "descricao": ""
@@ -13,8 +13,8 @@
     "id": 3,
     "nome": "DR. AQUILA SILVESTRE",
     "area_atuacao": "TRABALHISTA",
-    "foto": "assets/img/equipe/2.jpeg",
-    "imagem": "assets/img/equipe/21.png",
+    "foto": "2.jpeg",
+    "imagem": "21.png",
     "instagram":"https://www.instagram.com/advhelena.vcar/",
     "exibir": true,
     "descricao": ""
@@ -23,8 +23,8 @@
     "id": 5,
     "nome": "DRA. HELENA KING",
     "area_atuacao": "PREVIDENCIÁRIO",
-    "foto": "assets/img/equipe/5.png",
-    "imagem": "assets/img/equipe/51.png",
+    "foto": "5.png",
+    "imagem": "51.png",
     "exibir": true,
     "instagram":"https://www.instagram.com/advhelena.vcar/",
     "descricao": "ADVOGADA PARCEIRA"
@@ -33,8 +33,8 @@
     "id": 6,
     "nome": "DRA. Roseany Dias",
     "area_atuacao": "CIVIL / FAMÍLIA",
-    "foto": "assets/img/equipe/6.png",
-    "imagem": "assets/img/equipe/61.png",
+    "foto": "6.png",
+    "imagem": "61.png",
     "exibir": true,
     "instagram":"https://www.instagram.com/advroseany.vcar/",
     "descricao": ""

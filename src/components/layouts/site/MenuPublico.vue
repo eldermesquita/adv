@@ -8,6 +8,8 @@ import $ from 'jquery'
 import AreaAtuacao from '@/dados/areaAtuacao.json'
 import '@assets/js/jquery.meanmenu.min.js'
 import '@assets/css/meanmenu.css'
+import { useContato } from '@/composable/useContato'
+const { getWhatsappLink } = useContato()
 
 globalThis.$ = globalThis.jQuery = $
 
@@ -142,7 +144,7 @@ onMounted(async () => {
       </div>
     </div>
     <div class="header-button  d-none d-sm-block">
-      <a href="#" class="theme-btn-whatsapp black-btn ">
+      <a :href="getWhatsappLink()" target="_blank"  class="theme-btn-whatsapp black-btn ">
         whatsapp
       </a>
     </div>

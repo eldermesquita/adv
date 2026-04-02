@@ -29,8 +29,8 @@ onMounted(async () => {
                data-aos="slide-right"
                data-aos-delay="300"
                data-aos-duration="800">
-            <h1>
-              ESCRITÓRIO DE ADVOCACIA
+            <h1 >
+              Victor Carvalho advogados
             </h1>
             <p >Sociedade Unipessoal de Advocacia - OAB/RR 127
               Você está enfrentando
@@ -38,9 +38,9 @@ onMounted(async () => {
               Atendimento especializado de forma Presencial em
               todo Estado de Roraima e Online em todo brasil
             </p>
-            <div class="hero-button mt-4">
+            <div class="hero-button mt-4 ">
               <a :href="getWhatsappLink('Olá, gostaria de falar com um advogado.')"
-                 target="_blank" class="theme-btn">Falar com advogado</a>
+                 target="_blank" class="theme-btn animate__animated animate__bounce animate__delay-2s animate__repeat-3 ">Falar com advogado</a>
             </div>
             <div class="feedback d-flex mt-xl-5">
               <div class="infu">

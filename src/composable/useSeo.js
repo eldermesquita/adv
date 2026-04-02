@@ -1,5 +1,5 @@
 
-const SITE_NAME = 'Carvalho Advocacia'
+const SITE_NAME = 'Victor Carvalho Advocacia'
 const SITE_URL = 'http://localhost:5173'
 const DEFAULT_IMAGE = `/src/assets/img/imagem-padrao.png`
 const DEFAULT_DESCRIPTION = 'Sociedade Unipessoal de Advocacia — Defesa Criminal, Previdenciário, Trabalhista e Cível em Roraima.'
