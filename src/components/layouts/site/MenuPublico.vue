@@ -19,9 +19,6 @@ onMounted(async () => {
 
     const $headerSticky = "#header-sticky"
     const masonryLayout = ".masonry-layout"
-    const $searchWrap = $('.search-wrap')
-    const $navSearch = $('.nav-search')
-    const $searchClose = $('#search-close')
 
     $(globalThis).on("scroll", function () {
       if ($(this).scrollTop() > 250) {
@@ -43,7 +40,7 @@ onMounted(async () => {
     $('#mobile-menu').meanmenu({
       meanMenuContainer: '.mobile-menu',
       meanScreenWidth: "1199",
-      meanExpand: ['<i class="far fa-plus"></i>'],
+      meanExpand: ['<i class="fi fi-bs-plus"></i>'],
     });
 
 
@@ -62,31 +59,6 @@ onMounted(async () => {
       $('.body-overlay').removeClass('opened')
     })
 
-
-    $('.search-trigger').on('click', function (e) {
-      e.preventDefault()
-      $searchWrap.animate({opacity: 'toggle'}, 500)
-      $navSearch.add($searchClose).addClass('open')
-    })
-
-    $('.search-close').on('click', function (e) {
-      e.preventDefault()
-      $searchWrap.animate({opacity: 'toggle'}, 500)
-      $navSearch.add($searchClose).removeClass('open')
-    })
-
-    function closeSearch() {
-      $searchWrap.fadeOut(200)
-      $navSearch.add($searchClose).removeClass('open')
-    }
-
-    $(document.body).on('click', function () {
-      closeSearch()
-    })
-
-    $('.search-trigger, .main-search-input').on('click', function (e) {
-      e.stopPropagation()
-    })
 
     function loader() {
       const $preloader = ".preloader"
@@ -132,6 +104,7 @@ onMounted(async () => {
               <router-link :to="`/noticias`">
                 Artigos Blog
               </router-link>
+
             </li>
             <li>
               <router-link :to="`/quem-somos`">

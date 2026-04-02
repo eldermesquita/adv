@@ -25,6 +25,7 @@ const { getWhatsappLink } = useContato()
         </div>
         <div class="col-lg-4 col-md-6 col-12">
           <div class="single-contact-card d-flex align-items-center">
+          <a href="https://share.google/jE5AqTy68Pm0Dgbf4" target="_blank" >
             <div class="icon">
               <i class="flaticon-location"></i>
             </div>
@@ -32,6 +33,7 @@ const { getWhatsappLink } = useContato()
               <span>Nossa Localização</span>
               <h4>R. Mte. Albano, 3730 - Asa Branca, Boa Vista - RR, 69312-298</h4>
             </div>
+          </a>
           </div>
         </div>
         <div class="col-lg-4 col-md-6 col-12">

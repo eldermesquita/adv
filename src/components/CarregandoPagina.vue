@@ -2,7 +2,8 @@
 import {useCarregandoStore} from '@/stores/carregandoStore'
 import {onMounted} from 'vue'
 import {RouterLink} from "vue-router";
-
+import { useContato } from '@/composable/useContato'
+const { getWhatsappLink } = useContato()
 const Carregando = useCarregandoStore()
 
 onMounted(() => {
@@ -50,10 +51,10 @@ onMounted(() => {
       <p class="text-center">Advocacia</p>
     </div>
     <div class="progress" style="height: 1px;">
-      <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+      <div class="progress-bar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
     </div>
     <div class="progress" style="height: 20px;">
-      <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+      <div class="progress-bar"  style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
     </div>
     <div class="loader">
       <div class="row">
@@ -110,7 +111,7 @@ onMounted(() => {
                   <i class="fas fa-map-marker-alt"></i>
                 </div>
                 <div class="offcanvas__contact-text">
-                  <a target="_blank" href="#">Rua Mestre Albano, 3730, Asa branca, Boa Vista, RR, 69312-298</a>
+                  <a target="_blank" href="https://share.google/jE5AqTy68Pm0Dgbf4">Rua Mestre Albano, 3730, Asa branca, Boa Vista, RR, 69312-298</a>
                 </div>
               </li>
               <li class="d-flex align-items-center">
@@ -119,17 +120,10 @@ onMounted(() => {
                 </div>
                 <div class="offcanvas__contact-text">
                   <a href="#"><span
-                    class="mailto:info@example.com">carvalhoadvocaciarr@gmail.com</span></a>
+                    class="mailto:carvalhoadvocaciarr@gmail.com">carvalhoadvocaciarr@gmail.com</span></a>
                 </div>
               </li>
-              <li class="d-flex align-items-center">
-                <div class="offcanvas__contact-icon mr-15">
-                  <i class="fas fa-clock"></i>
-                </div>
-                <div class="offcanvas__contact-text">
-                  <a target="_blank" href="#">Mod-friday, 09am -05pm</a>
-                </div>
-              </li>
+
               <li class="d-flex align-items-center">
                 <div class="offcanvas__contact-icon mr-15">
                   <i class="fas fa-phone"></i>
@@ -140,13 +134,12 @@ onMounted(() => {
               </li>
             </ul>
             <div class="header-button mt-4">
-              <a href="#" class="theme-btn  black-btn ">
+              <a :href="getWhatsappLink()" target="_blank"  class="theme-btn  black-btn ">
                 whatsapp
               </a>
             </div>
             <div class="social-icon d-flex align-items-center">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.instagram.com/advvictor/" target="_blank"><i class="fab fa-facebook-f"></i></a>
               <a href="#"><i class="fab fa-youtube"></i></a>
 
             </div>
@@ -157,17 +150,4 @@ onMounted(() => {
   </div>
   <div class="offcanvas__overlay"></div>
 
-  <!-- Search Area Start -->
-  <div class="search-wrap">
-    <div class="search-inner">
-      <i class="fab fa-times search-close" id="search-close"></i>
-      <div class="search-cell">
-        <form method="get">
-          <div class="search-field-holder">
-            <input type="search" class="main-search-input" placeholder="O que você está procurando?">
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
 </template>

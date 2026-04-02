@@ -43,7 +43,7 @@ a.meanmenu-reveal {
     float: left;
     width: 100%;
     background: #070337;
-    margin-top: 44px
+
 }
 
 .mean-container .mean-nav ul {
@@ -100,7 +100,7 @@ a.meanmenu-reveal {
 }
 
 .mean-container .mean-nav ul li a.mean-expand {
-    margin-top: 1px;
+    margin-top: 14px;
     width: 26px;
     height: 32px;
     text-align: center;
